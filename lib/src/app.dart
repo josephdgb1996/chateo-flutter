@@ -1,7 +1,6 @@
 import 'package:app/src/module/auth/screens/auth_screen.dart';
 import 'package:flutter/material.dart';
 //ui
-import 'package:app/src/module/shared/splash_screen.dart';
 
 void main() => runApp(const Chateo());
 

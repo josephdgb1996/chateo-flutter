@@ -9,7 +9,7 @@ class CircularSocialButton extends StatelessWidget {
     return Container(
       height: 60,
       width: 60,
-      decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: Colors.white)),
+      decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: Colors.white38)),
       child: Center(child: Image.asset(imagePath, height: 60, width: 60)),
     );
   }

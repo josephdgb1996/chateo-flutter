@@ -5,7 +5,7 @@ class OrDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget divider = const Expanded(child: Divider());
+    Widget divider = const Expanded(child: Divider(color: Colors.white24,));
     Widget or = Container(
       margin: const EdgeInsets.only(left: 15, right: 15),
       child: const Text("OR", style: TextStyle(color: Colors.white)),

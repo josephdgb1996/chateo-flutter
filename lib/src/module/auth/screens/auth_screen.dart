@@ -1,7 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:app/src/module/auth/widgets/auth_background.dart';
 import 'package:app/src/module/auth/widgets/circular_social_button.dart';
 import 'package:app/src/module/auth/widgets/or_divider.dart';
-import 'package:flutter/material.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
@@ -12,12 +12,13 @@ class AuthScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Color(0xff000E08),
         body: AuthBackground(
-          child: Column(
-            children: [
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 18.0),
+            child: Column(children: [
               _ChateoLogo(),
               Expanded(child: _MainText()),
               Expanded(child: _SignUpOptions()),
-            ],
+            ]),
           ),
         ),
       ),
@@ -46,12 +47,27 @@ class _MainText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(mainAxisSize: MainAxisSize.max, children: [
-      Text(
-        "Connect \n friends \n easily & \n quickly",
-        style: TextStyle(color: Colors.white, fontWeight: FontWeight.w400, fontSize: 52),
+    TextStyle richTextStyle = const TextStyle(
+      color: Colors.white,
+      fontWeight: FontWeight.w400,
+      fontSize: 63,
+      letterSpacing: 3.5
+    );
+
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+      RichText(
+        text: TextSpan(
+          text: "Connect\nfriends\n",
+          style: richTextStyle,
+          children: [
+            TextSpan(text: "easily &\nquickly", style: richTextStyle.copyWith(fontWeight: FontWeight.bold)),
+          ],
+        ),
       ),
-      Text("Our chat app is the perfect way to stay connected with friends and family", style: TextStyle(color: Colors.white70)),
+      const Text(
+        "Our chat app is the perfect way to stay connected with friends and family",
+        style: TextStyle(color: Colors.white70),
+      ),
     ]);
   }
 }
@@ -93,18 +109,19 @@ class _SignUpWithEmail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.red,
-      child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        TextButton(
-          onPressed: null,
-          style: TextButton.styleFrom(foregroundColor: Colors.white, backgroundColor: Colors.white),
-          child: const Text("Sign up withn mail"),
+    return Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+      TextButton(
+        onPressed: null,
+        style: TextButton.styleFrom(
+          minimumSize: Size(MediaQuery.of(context).size.width, 60),
+          backgroundColor: Colors.white,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(23)),
         ),
-        RichText(
-          text: const TextSpan(text: "Existing account", children: [TextSpan(text: " Log in", style: TextStyle(fontWeight: FontWeight.bold))]),
-        )
-      ]),
-    );
+        child: const Text("Sign up withn mail"),
+      ),
+      RichText(
+        text: const TextSpan(text: "Existing account", children: [TextSpan(text: " Log in", style: TextStyle(fontWeight: FontWeight.bold))]),
+      )
+    ]);
   }
 }
