@@ -1,4 +1,7 @@
+import 'package:app/src/module/auth/screens/auth_screen.dart';
 import 'package:flutter/material.dart';
+//ui
+import 'package:app/src/module/shared/splash_screen.dart';
 
 void main() => runApp(const Chateo());
 
@@ -8,15 +11,14 @@ class Chateo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Chateo',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
-        ),
-        body: const Center(
-          child: Text('Hello World'),
-        ),
+      theme: ThemeData(
+        useMaterial3: true,
+        scaffoldBackgroundColor: Colors.white,
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xff24786D) ),
       ),
+      home: const AuthScreen(),
     );
   }
 }
