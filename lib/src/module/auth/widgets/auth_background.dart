@@ -17,20 +17,29 @@ class _BackgroundPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final paint = Paint();
     final rect = Rect.fromLTRB(-105, -20, size.width, 200);
+    
+    final Path path = Path();
 
     paint.strokeWidth = 2;
     paint.color = Colors.white;
     paint.style = PaintingStyle.fill;
 
-    paint.shader = LinearGradient(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
+    paint.shader = const RadialGradient(
+      // begin: Alignment.topCenter,
+      // end: Alignment.bottomCenter,
+      tileMode: TileMode.clamp,
       colors: [
         Colors.black, //
-        const Color(0xff43116A),
-        Colors.black.withOpacity(0.8),
+        Colors.black, //
+        Color(0xff43116A),
+        Color(0xff43116A),
+        Color(0xff43116A),
+        Color(0xff43116A),
+        Colors.black,
+        Colors.black,
       ],
-      stops: const [0.2, 0.8, 0.1],
+      radius: 0.8,
+      // stops: const [0.2, 0.8, 0.1],
     ).createShader(rect);
 
     //canvas

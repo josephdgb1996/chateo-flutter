@@ -1,8 +1,6 @@
 import 'package:app/src/module/auth/screens/auth_screen.dart';
+// import 'package:app/src/module/auth/screens/signin_screen.dart';
 import 'package:flutter/material.dart';
-//ui
-
-void main() => runApp(const Chateo());
 
 class Chateo extends StatelessWidget {
   const Chateo({super.key});

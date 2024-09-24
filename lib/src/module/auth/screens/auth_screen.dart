@@ -1,3 +1,6 @@
+// ignore_for_file: avoid_print
+
+import 'package:app/src/module/shared/custom_rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:app/src/module/auth/widgets/auth_background.dart';
 import 'package:app/src/module/auth/widgets/circular_social_button.dart';
@@ -47,12 +50,7 @@ class _MainText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextStyle richTextStyle = const TextStyle(
-      color: Colors.white,
-      fontWeight: FontWeight.w400,
-      fontSize: 63,
-      letterSpacing: 3.5
-    );
+    TextStyle richTextStyle = const TextStyle(color: Colors.white, fontWeight: FontWeight.w400, fontSize: 63, letterSpacing: 3.5);
 
     return Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
       RichText(
@@ -110,17 +108,14 @@ class _SignUpWithEmail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-      TextButton(
-        onPressed: null,
-        style: TextButton.styleFrom(
-          minimumSize: Size(MediaQuery.of(context).size.width, 60),
-          backgroundColor: Colors.white,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(23)),
-        ),
-        child: const Text("Sign up withn mail"),
-      ),
+      const CustomRoundedButton(text: "Sign up withn mail"),
       RichText(
-        text: const TextSpan(text: "Existing account", children: [TextSpan(text: " Log in", style: TextStyle(fontWeight: FontWeight.bold))]),
+        text: const TextSpan(text: "Existing account?", style: TextStyle(color: Colors.white70), children: [
+          TextSpan(
+            text: " Log in",
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)
+          )
+        ]),
       )
     ]);
   }
